@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contas Bancárias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/transactions.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="nav">
+      <div class="brand">Gerenciador</div>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="transactions.html">Transações</a></li>
+          <li><a href="accounts.html" class="active" aria-current="page">Contas</a></li>
+          <li><a href="#">Perfil</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Contas & Cartões</h1>
+    <div class="content">
+      <section class="form-section">
+        <form id="accountForm" class="card">
+          <fieldset>
+            <legend>Nova Conta</legend>
+          </fieldset>
+          <div class="field-row">
+            <label for="bankName">Banco</label>
+            <input id="bankName" name="bankName" type="text" placeholder="Ex: Nubank" required />
+          </div>
+          <div class="field-row">
+            <label for="accountNumber">Número da conta</label>
+            <input id="accountNumber" name="accountNumber" type="text" placeholder="Ex: 12345-6" required />
+          </div>
+          <div class="field-row">
+            <label for="accountDescription">Descrição</label>
+            <input id="accountDescription" name="description" type="text" placeholder="Conta salário, corrente..." />
+          </div>
+          <div class="actions">
+            <button type="submit">Salvar</button>
+            <button type="button" id="accountClear" class="secondary">Limpar</button>
+          </div>
+        </form>
+
+        <form id="cardForm" class="card">
+          <fieldset>
+            <legend>Novo Cartão</legend>
+          </fieldset>
+          <div class="field-row">
+            <label for="cardDescription">Descrição</label>
+            <input id="cardDescription" name="description" type="text" placeholder="Ex: Cartão Crédito" required />
+          </div>
+          <div class="field-row">
+            <label for="cardAccount">Conta</label>
+            <select id="cardAccount" name="accountId" required></select>
+          </div>
+          <div class="field-row">
+            <label for="lastDigits">Final do cartão</label>
+            <input id="lastDigits" name="lastDigits" type="text" maxlength="4" placeholder="Ex: 1234" required />
+          </div>
+          <div class="actions">
+            <button type="submit">Salvar</button>
+            <button type="button" id="cardClear" class="secondary">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="list-section">
+        <h2>Contas</h2>
+        <table id="accountsTable">
+          <thead>
+            <tr>
+              <th>Banco</th>
+              <th>Número</th>
+              <th>Descrição</th>
+              <th style="width:120px">Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <h2 style="margin-top:28px">Cartões</h2>
+        <table id="cardsTable">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Conta</th>
+              <th>Final</th>
+              <th style="width:120px">Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/accounts.js"></script>
+</body>
+</html>

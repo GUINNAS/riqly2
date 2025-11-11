@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Financeiro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/transactions.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="nav">
+      <div class="brand">Gerenciador</div>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="dashboard.html" class="active" aria-current="page">Dashboard</a></li>
+          <li><a href="transactions.html">Transações</a></li>
+          <li><a href="accounts.html">Contas</a></li>
+          <li><a href="#">Perfil</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Dashboard Financeiro</h1>
+    <div class="content" style="flex-direction:column;gap:32px">
+      <section class="card" id="summaryCards" style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
+        <div class="mini-card" data-type="income">
+          <h3>Receitas</h3>
+          <p class="value" id="incomeValue">—</p>
+        </div>
+        <div class="mini-card" data-type="expense">
+          <h3>Despesas</h3>
+          <p class="value" id="expenseValue">—</p>
+        </div>
+        <div class="mini-card" data-type="net">
+          <h3>Saldo</h3>
+          <p class="value" id="netValue">—</p>
+        </div>
+        <div class="mini-card" data-type="count">
+          <h3>Transações</h3>
+          <p class="value" id="countValue">—</p>
+        </div>
+        <div class="dash-toolbar">
+          <div style="display:flex;flex-direction:column;gap:6px;min-width:180px">
+            <label for="monthSelect">Mês</label>
+            <input id="monthSelect" type="month" />
+          </div>
+        </div>
+      </section>
+
+      <section class="card dash-grid">
+        <div>
+          <h2 style="font-size:1rem;margin:0 0 12px">Despesas por Categoria</h2>
+          <canvas id="categoryChart" height="240"></canvas>
+        </div>
+        <div>
+          <h2 style="font-size:1rem;margin:0 0 12px">Composição Mensal</h2>
+          <canvas id="incomeExpenseChart" height="240"></canvas>
+        </div>
+      </section>
+      <section class="card" id="categoryTableSection">
+        <h2 style="font-size:1rem;margin:0 0 16px">Ranking de Categorias (Despesas)</h2>
+        <table id="categoryTable">
+          <thead>
+            <tr><th>Categoria</th><th>Valor</th><th>%</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

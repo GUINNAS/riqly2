@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Transações</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/transactions.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="nav">
+      <div class="brand">Gerenciador</div>
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="dashboard.html" data-route="dashboard">Dashboard</a></li>
+          <li><a href="transactions.html" class="active" aria-current="page">Transações</a></li>
+          <li><a href="accounts.html" data-route="accounts">Contas</a></li>
+          <li><a href="#" data-route="profile">Perfil</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Gerenciador de Transações</h1>
+
+    <div class="content">
+      <section class="form-section">
+        <form id="transactionForm" class="card">
+          <fieldset>
+            <legend>Tipo</legend>
+            <label><input type="radio" name="type" value="DESPESA" checked> Despesa</label>
+            <label><input type="radio" name="type" value="RECEITA"> Receita</label>
+          </fieldset>
+
+          <div class="field-row">
+            <label for="amount">Valor</label>
+            <input id="amount" name="amount" type="number" step="0.01" min="0" required>
+          </div>
+
+          <div class="field-row">
+            <label for="description">Descrição</label>
+            <input id="description" name="description" type="text" maxlength="200" placeholder="Ex: Mercado">
+          </div>
+
+          <div class="field-row">
+            <label for="date">Data</label>
+            <input id="date" name="date" type="date" required>
+          </div>
+
+          <div class="field-row">
+            <label for="category">Categoria</label>
+            <select id="category" name="category">
+              <option value="alimentacao">Alimentação</option>
+              <option value="transporte">Transporte</option>
+              <option value="moradia">Moradia</option>
+              <option value="lazer">Lazer</option>
+              <option value="salario">Salário</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+
+          <div class="field-row">
+            <label for="recurring">Recorrente</label>
+            <select id="recurring" name="recurring">
+              <option value="false">Não</option>
+              <option value="true">Sim</option>
+            </select>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Salvar</button>
+            <button id="clearBtn" type="button" class="secondary">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="list-section">
+        <h2>Transações</h2>
+        <table id="transactionsTable">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Valor</th>
+              <th>Descrição</th>
+              <th>Data</th>
+              <th>Categoria</th>
+              <th>Recorrente</th>
+              <th style="width:120px">Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" hidden>
+          <div class="empty-illustration" aria-hidden="true">💳</div>
+          <p>Nenhuma transação encontrada. Adicione a primeira usando o formulário ao lado.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/transactions.js"></script>
+</body>
+</html>
